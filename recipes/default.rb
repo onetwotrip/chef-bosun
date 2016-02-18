@@ -20,10 +20,7 @@ include_recipe 'runit'
 directory node['bosun']['conf_dir']
 directory node['bosun']['log_dir']
 
-template "#{node['bosun']['conf_dir']}/bosun.conf" do
-  cookbook node['bosun']['config_cookbook']
-  source 'bosun.conf.erb'
-  notifies :restart, "service[bosun]"
+runit_service 'bosun' do
+  default_logger true
+  only_if node['bosun']['init_style'] == 'runit'
 end
-
-runit_service 'bosun' if node['bosun']['init_style'] == 'runit'

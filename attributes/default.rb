@@ -2,11 +2,7 @@
 default['bosun']['init_style']      = 'runit'
 default['bosun']['install_style']   = 'binary' # binary or golang
 
-default['bosun']['tsdb_host']       = '127.0.0.1'
-default['bosun']['tsdb_port']       = '4242'
-
 default['bosun']['conf_dir']        = '/etc/bosun/'
-default['bosun']['log_dir']         = '/var/log/bosun/'
 default['bosun']['open_files']      = 65535
 default['bosun']['install_path']    = '/usr/local/bin/bosun'
 

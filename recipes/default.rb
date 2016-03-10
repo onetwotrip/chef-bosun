@@ -18,9 +18,8 @@ include_recipe "bosun::#{node['bosun']['install_style']}"
 include_recipe 'runit'
 
 directory node['bosun']['conf_dir']
-directory node['bosun']['log_dir']
 
 runit_service 'bosun' do
   default_logger true
-  only_if node['bosun']['init_style'] == 'runit'
+  only_if { node['bosun']['init_style'] == 'runit' }
 end
